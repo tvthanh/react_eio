@@ -1,17 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Nav, Navbar, NavItem } from "react-bootstrap";
+import ClassNames from 'classnames';
+import NavLink from './NavLink.jsx';
 
-class Navbar extends React.Component {
+class Navigation extends React.Component {
   render() {
     return (
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/signup">Sign Up</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
+      <div className="Navigation">
+        <Navbar fluid collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <NavLink to="/">EIO</NavLink>
+            </Navbar.Brand>
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav pullRight>
+              <li><NavLink to="/signup">Sign Up</NavLink></li>
+              <li><NavLink to="/login">Login</NavLink></li>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
 
-export default Navbar;
+export default Navigation;
